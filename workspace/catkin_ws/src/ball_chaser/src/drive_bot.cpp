@@ -20,7 +20,6 @@ bool handle_drive_request(ball_chaser::DriveToTarget::Request& req, ball_chaser:
 
     // Publishing requested linear x and angular velocities to the robot wheel joints
     motor_command_publisher.publish(motor_command);
-    ros::Duration(0.5).sleep();
 
     // Returning a message feedback
     res.msg_feedback = "Motor Command is Set - linear.x: "+ std::to_string(req.linear_x) + " angular.z: " + std::to_string(req.angular_z);

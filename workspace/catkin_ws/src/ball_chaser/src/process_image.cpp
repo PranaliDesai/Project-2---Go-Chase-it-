@@ -26,7 +26,7 @@ void process_image_callback(const sensor_msgs::Image img)
   int step = -1; 
   int ball_detected = 0; 
   for (int i = 0; i < img.height * img.step; i++) {
-    if (img.data[i] == white_pixel ) {
+    if (img.data[i] == white_pixel && img.data[i+1] == white_pixel  && img.data[i+2] == white_pixel  ) {
       step  = i % img.step;
       ball_detected = 1;
       break;
